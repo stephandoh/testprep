@@ -28,3 +28,8 @@ ws = Workspace.create(
     "resource_group" = "<resource-group>",
     "workspace_name" = "<workspace-name>"
 }
+
+3 connect to workpace using configuration file
+
+from azureml.core import Workspace
+ws = Workspace.from_config()
