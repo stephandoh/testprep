@@ -21,3 +21,10 @@ ws = Workspace.create(
     sku='enterprise'
 )
 
+2. Workspace Configuration
+
+{
+    "subcription_id" = "<subscription-id>",
+    "resource_group" = "<resource-group>",
+    "workspace_name" = "<workspace-name>"
+}
