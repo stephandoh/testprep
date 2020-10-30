@@ -32,3 +32,15 @@ ws = Worksspace.get(
     subscription_id = "123456-abc-123...",
     resource_group = "aml-resouces"
 )
+
+// Registore a datastore
+from azureml.core import Workspacem datastore
+ws = Workspace.from_config()
+
+blob_ds = Datastore.register_azure_blob_container(
+    workspace=ws,
+    datastore_name='blob_data',
+    container_name='data_container',
+    account_name='az_store_acct',
+    account_key='<account-key>'
+    )
