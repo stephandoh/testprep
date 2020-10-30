@@ -1,6 +1,6 @@
 35%
 
-1 create an azure machine learning workspace
+// create an azure machine learning workspace
 
 from azureml.core import workspacews =  Workspace.create(
     name = "aml-workspace",
@@ -11,17 +11,7 @@ from azureml.core import workspacews =  Workspace.create(
     sku = 'enterprise
 )
 
-from azureml.core import Workspace
-ws = Workspace.create(
-    name='aml-workspace',
-    subscription_id='123456-abc-123...',
-    resource_group='aml-resources',
-    create_resource_group=True,
-    location='eastus',
-    sku='enterprise'
-)
-
-2. Workspace Configuration
+// Workspace Configuration
 
 {
     "subcription_id" = "<subscription-id>",
@@ -29,7 +19,16 @@ ws = Workspace.create(
     "workspace_name" = "<workspace-name>"
 }
 
-3 connect to workpace using configuration file
+// connect to workpace using configuration file
 
 from azureml.core import Workspace
 ws = Workspace.from_config()
+
+// load workspace without configuration file
+
+from azureml.core import Workspace
+ws = Worksspace.get(
+    name = "aml-workspace",
+    subscription_id = "123456-abc-123...",
+    resource_group = "aml-resouces"
+)
