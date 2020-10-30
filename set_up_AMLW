@@ -56,3 +56,18 @@ tab_ds = tab_ds.register(workspace= ws, name = 'csv_table')
 blob_ds= ws.get_default datasore()
 file_ds = Dataset.File.from_files(path = (data/files/images/*.jpg))
 file_ds = file.ds.register(workspace = ws, name='img_files')
+
+//create a compute instance 
+from azureml.core.compute import ComputeInstance, ComputeTarget
+from azureml.core.compute_target import ComputeTargetException
+compute_name = 'compute-instance'
+try:
+    instance = Compute_Instance(workspace=ws, name= compute_name)
+
+Except ComputeTargetException:
+    compute_config = ComputeInstance.provisioning_configuration(
+        vm_size = 'STANDARD_D3_V2',
+        ssh_public_access= False
+    )
+    instance = ComputeInstance.create(ws, name, compute_config)
+    instance.wait_for_completion(show_output=True)
