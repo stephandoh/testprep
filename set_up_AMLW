@@ -51,3 +51,8 @@ blob_ds = ws.get_default_datastore()
 csv_paths = [(blob_ds, 'data/files/current_data.csv'),(blob_ds, data/files/archive/*.csv')]
 tab_ds = Dataset.Tabular.from_delimited_files(path = csv_paths)
 tab_ds = tab_ds.register(workspace= ws, name = 'csv_table')
+
+// create and register a file dataset
+blob_ds= ws.get_default datasore()
+file_ds = Dataset.File.from_files(path = (data/files/images/*.jpg))
+file_ds = file.ds.register(workspace = ws, name='img_files')
