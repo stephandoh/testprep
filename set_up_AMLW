@@ -44,3 +44,10 @@ blob_ds = Datastore.register_azure_blob_container(
     account_name='az_store_acct',
     account_key='<account-key>'
     )
+
+// create and register a tabular dataset 
+from azureml.core import Dataset
+blob_ds = ws.get_default_datastore()
+csv_paths = [(blob_ds, 'data/files/current_data.csv'),(blob_ds, data/files/archive/*.csv')]
+tab_ds = Dataset.Tabular.from_delimited_files(path = csv_paths)
+tab_ds = tab_ds.register(workspace= ws, name = 'csv_table')
